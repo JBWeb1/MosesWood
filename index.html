@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moses Wood Paarl</title>
+  <style>
+    :root {
+      --main-brown: #5d4037;
+      --light-brown: #efebe9;
+      --accent-green: #4e7d56;
+      --text-color: #3b2f2f;
+      --background: #f5f1ea;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--main-brown);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+
+    .intro {
+      padding: 2rem 1rem;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+    }
+
+    .whatsapp-btn {
+      background-color: var(--accent-green);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #3c6643;
+      transform: scale(1.05);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      padding: 2rem 1rem;
+      background-color: white;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    .products {
+      padding: 2rem 1rem;
+      background-color: var(--light-brown);
+    }
+
+    .products h2 {
+      text-align: center;
+      color: var(--main-brown);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      margin-top: 0.7rem;
+      font-size: 1.1rem;
+      color: #4e342e;
+    }
+
+    footer {
+      background-color: var(--main-brown);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .whatsapp-btn {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .intro p {
+        font-size: 0.95rem;
+      }
+
+      .whatsapp-btn {
+        font-size: 1rem;
+        padding: 0.75rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Moses Wood Paarl</h1>
+  </header>
+
+  <section class="intro">
+    <p>
+      At Moses Wood Paarl, we’re committed to providing top-quality wood at the <strong>best prices</strong>.
+      Whether you're a builder, craftsman, or DIY enthusiast, we offer reliable, <strong>fast delivery</strong> and a wide selection of <strong>premium wood products</strong> to meet your needs.
+      Your satisfaction is our priority — quality, speed, and value in every order.
+    </p>
+    <a href="https://wa.me/27721234567" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
+  </section>
+
+  <section class="gallery">
+    <img src="c1.png" alt="Wood showcase 1">
+    <img src="c2.png" alt="Wood showcase 2">
+    <img src="c3.png" alt="Wood showcase 3">
+  </section>
+
+  <section class="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="c8.jpg" alt="Pine Planks" />
+        <h3>Pine Planks</h3>
+        <p>High-quality pine timber, ideal for building and carpentry.</p>
+      </div>
+      <div class="product">
+        <img src="c9.avif" alt="Firewood Bundle" />
+        <h3>Firewood Bundle</h3>
+        <p>Dry and ready-to-burn firewood for homes and braais.</p>
+      </div>
+      <div class="product">
+        <img src="c7.png" alt="Fence Poles" />
+        <h3>Fence Poles</h3>
+        <p>Durable wooden poles, treated for outdoor use.</p>
+      </div>
+      <div class="product">
+        <img src="c6.png" alt="Timber Boards" />
+        <h3>Timber Boards</h3>
+        <p>Versatile boards for furniture and interior work.</p>
+      </div>
+      <div class="product">
+        <img src="c4.png" alt="Log Offcuts" />
+        <h3>Log Offcuts</h3>
+        <p>Affordable offcuts, great for fire or rustic decor.</p>
+      </div>
+      <div class="product">
+        <img src="c5.png" alt="Braai Wood Pack" />
+        <h3>Braai Wood Pack</h3>
+        <p>Perfectly sized wood for traditional braais.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Moses Wood Paarl. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
