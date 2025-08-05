@@ -4,42 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moses Wood Paarl</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --main-brown: #5d4037;
-      --light-brown: #efebe9;
-      --accent-green: #4e7d56;
-      --text-color: #3b2f2f;
-      --background: #f5f1ea;
+      --main-brown: #4e342e;
+      --light-brown: #fbe9e7;
+      --accent-green: #388e3c;
+      --text-color: #333;
+      --bg: #fffaf5;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--background);
+      background-color: var(--bg);
       color: var(--text-color);
-      line-height: 1.6;
     }
 
     header {
       background-color: var(--main-brown);
       color: white;
-      padding: 2rem 1rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
     header h1 {
-      font-size: 2.2rem;
-      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .hero {
+      background: url('c1.png') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
     }
 
     .intro {
-      padding: 2rem 1rem;
+      padding: 2rem;
       text-align: center;
       max-width: 900px;
       margin: auto;
@@ -47,75 +65,54 @@
 
     .intro p {
       font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
 
     .whatsapp-btn {
       background-color: var(--accent-green);
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.5rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 30px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1rem;
-      display: inline-block;
-      margin-top: 1rem;
-      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s ease;
     }
 
     .whatsapp-btn:hover {
-      background-color: #3c6643;
-      transform: scale(1.05);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      padding: 2rem 1rem;
-      background-color: white;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.02);
+      background-color: #2e7d32;
     }
 
     .products {
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       background-color: var(--light-brown);
+      text-align: center;
     }
 
     .products h2 {
-      text-align: center;
       color: var(--main-brown);
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
     }
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
       max-width: 1100px;
       margin: auto;
     }
 
     .product {
-      background-color: #fff;
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      text-align: center;
-      padding: 1rem;
-      transition: transform 0.2s ease;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
     }
 
     .product:hover {
@@ -124,69 +121,57 @@
 
     .product img {
       width: 100%;
-      height: 150px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 8px;
+    }
+
+    .product-info {
+      padding: 1rem;
     }
 
     .product h3 {
-      margin-top: 0.7rem;
       font-size: 1.1rem;
-      color: #4e342e;
+      color: var(--main-brown);
+      margin-bottom: 0.5rem;
     }
 
-    .product .price {
+    .price {
+      color: var(--accent-green);
       font-weight: bold;
-      font-size: 1rem;
-      color: #2e7d32;
-      margin: 0.3rem 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .product p {
+      font-size: 0.95rem;
+      color: #555;
     }
 
     footer {
       background-color: var(--main-brown);
       color: white;
       text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      .intro p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
-
-      .product-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-
-      .whatsapp-btn {
-        width: 90%;
-      }
+      padding: 1.2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
     }
 
     @media (max-width: 480px) {
-      .product-grid {
-        grid-template-columns: 1fr;
+      header h1 {
+        font-size: 1.4rem;
       }
 
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .intro p {
-        font-size: 0.95rem;
+      .hero {
+        font-size: 1.4rem;
+        height: 200px;
       }
 
       .whatsapp-btn {
-        font-size: 1rem;
-        padding: 0.75rem;
         width: 100%;
+        justify-content: center;
+      }
+
+      .intro p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -195,61 +180,75 @@
 
   <header>
     <h1>Moses Wood Paarl</h1>
+    <a href="https://wa.me/27721234567" class="whatsapp-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i> Order
+    </a>
   </header>
+
+  <section class="hero">
+    Quality Wood. Fast Delivery. Great Prices.
+  </section>
 
   <section class="intro">
     <p>
       At Moses Wood Paarl, we’re committed to providing top-quality wood at the <strong>best prices</strong>.
       Whether you're a builder, craftsman, or DIY enthusiast, we offer reliable, <strong>fast delivery</strong> and a wide selection of <strong>premium wood products</strong> to meet your needs.
-      Your satisfaction is our priority — quality, speed, and value in every order.
     </p>
-    <a href="https://wa.me/27721234567" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-  </section>
-
-  <section class="gallery">
-    <img src="c1.png" alt="Wood showcase 1">
-    <img src="c2.png" alt="Wood showcase 2">
-    <img src="c3.png" alt="Wood showcase 3">
+    <a href="https://wa.me/27721234567" class="whatsapp-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat & Order
+    </a>
   </section>
 
   <section class="products">
     <h2>Our Products</h2>
     <div class="product-grid">
       <div class="product">
-        <img src="c8.jpg" alt="Pine Planks" />
-        <h3>Bloekom Hout 7kg</h3>
-        <p class="price">R19.99</p>
-        <p>Strong and long-burning hardwood, ideal for indoor and outdoor fires.</p>
+        <img src="c8.jpg" alt="Bloekom Hout">
+        <div class="product-info">
+          <h3>Bloekom Hout 7kg</h3>
+          <p class="price">R19.99</p>
+          <p>Strong and long-burning hardwood, ideal for indoor and outdoor fires.</p>
+        </div>
       </div>
       <div class="product">
-        <img src="c9.avif" alt="Firewood Bundle" />
-        <h3>Black-Wattle Hout 7kg</h3>
-        <p class="price">R24.99</p>
-        <p>Fast-burning, dry wood perfect for quick heat and easy lighting.</p>
+        <img src="c9.avif" alt="Black-Wattle Hout">
+        <div class="product-info">
+          <h3>Black-Wattle Hout 7kg</h3>
+          <p class="price">R24.99</p>
+          <p>Fast-burning, dry wood perfect for quick heat and easy lighting.</p>
+        </div>
       </div>
       <div class="product">
-        <img src="c7.png" alt="Fence Poles" />
-        <h3>Wingerd Stompe</h3>
-        <p class="price">R19.99 </p>
-        <p>Vine stumps used for braais, fireplaces, or decorative rustic appeal.</p>
+        <img src="c7.png" alt="Wingerd Stompe">
+        <div class="product-info">
+          <h3>Wingerd Stompe</h3>
+          <p class="price">R19.99</p>
+          <p>Vine stumps used for braais, fireplaces, or decorative rustic appeal.</p>
+        </div>
       </div>
       <div class="product">
-        <img src="c6.png" alt="Timber Boards" />
-        <h3>Plum Hout</h3>
-        <p class="price">R19.99 </p>
-        <p>Beautiful hardwood with a smooth finish, great for furniture and crafts.</p>
+        <img src="c6.png" alt="Plum Hout">
+        <div class="product-info">
+          <h3>Plum Hout</h3>
+          <p class="price">R19.99</p>
+          <p>Beautiful hardwood with a smooth finish, great for furniture and crafts.</p>
+        </div>
       </div>
       <div class="product">
-        <img src="c4.png" alt="Log Offcuts" />
-        <h3>Olyf Hout</h3>
-        <p class="price">R39.99 </p>
-        <p>Dense and aromatic wood, ideal for smoking meats or stylish firewood stacks.</p>
+        <img src="c4.png" alt="Olyf Hout">
+        <div class="product-info">
+          <h3>Olyf Hout</h3>
+          <p class="price">R39.99</p>
+          <p>Dense and aromatic wood, ideal for smoking meats or stylish firewood stacks.</p>
+        </div>
       </div>
       <div class="product">
-        <img src="c10.png" alt="Braai Wood Pack" />
-        <h3>Startes</h3>
-        <p class="price">R10-R20 </p>
-        <p>Easy-to-light kindling to help start any fire quickly and effortlessly.</p>
+        <img src="c10.png" alt="Startes">
+        <div class="product-info">
+          <h3>Startes</h3>
+          <p class="price">R10-R20</p>
+          <p>Easy-to-light kindling to help start any fire quickly and effortlessly.</p>
+        </div>
       </div>
     </div>
   </section>
