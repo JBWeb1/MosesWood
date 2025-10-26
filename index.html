@@ -1,261 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moses Wood Paarl</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --main-brown: #4e342e;
-      --light-brown: #fbe9e7;
-      --accent-green: #388e3c;
-      --text-color: #333;
-      --bg: #fffaf5;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OakCraft | Master Woodworks</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #1a120b;
+  color: #f5e9dc;
+  overflow-x: hidden;
+}
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      color: var(--text-color);
-    }
+header {
+  background: rgba(26, 18, 11, 0.9);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
 
-    header {
-      background-color: var(--main-brown);
-      color: white;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #e6b17e;
+}
 
-    header h1 {
-      font-size: 1.8rem;
-    }
+nav a {
+  text-decoration: none;
+  color: #f5e9dc;
+  margin-left: 30px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
 
-    .hero {
-      background: url('c1.png') center/cover no-repeat;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
-    }
+nav a:hover {
+  color: #e6b17e;
+}
 
-    .intro {
-      padding: 2rem;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-    }
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1506629082955-511b1e6c1a48?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+}
 
-    .intro p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
 
-    .whatsapp-btn {
-      background-color: var(--accent-green);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: background 0.3s ease;
-    }
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
 
-    .whatsapp-btn:hover {
-      background-color: #2e7d32;
-    }
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  color: #fff;
+  margin-bottom: 20px;
+  animation: fadeInDown 1.5s ease;
+}
 
-    .products {
-      padding: 3rem 1rem;
-      background-color: var(--light-brown);
-      text-align: center;
-    }
+.hero p {
+  font-size: 20px;
+  color: #e6b17e;
+  animation: fadeInUp 2s ease;
+}
 
-    .products h2 {
-      color: var(--main-brown);
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-    }
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-50px);}
+  to {opacity: 1; transform: translateY(0);}
+}
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(50px);}
+  to {opacity: 1; transform: translateY(0);}
+}
 
-    .product {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
+/* About Section */
+section {
+  padding: 100px 60px;
+}
 
-    .product:hover {
-      transform: translateY(-6px);
-    }
+.about {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
 
-    .product img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
+.about img {
+  width: 50%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
 
-    .product-info {
-      padding: 1rem;
-    }
+.about-text {
+  width: 50%;
+}
 
-    .product h3 {
-      font-size: 1.1rem;
-      color: var(--main-brown);
-      margin-bottom: 0.5rem;
-    }
+.about-text h3 {
+  font-size: 36px;
+  color: #e6b17e;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
 
-    .price {
-      color: var(--accent-green);
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
+.about-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #f1e3d3;
+}
 
-    .product p {
-      font-size: 0.95rem;
-      color: #555;
-    }
+/* Products */
+.products {
+  background: #2a1d12;
+  text-align: center;
+}
 
-    footer {
-      background-color: var(--main-brown);
-      color: white;
-      text-align: center;
-      padding: 1.2rem 1rem;
-      font-size: 0.9rem;
-      margin-top: 3rem;
-    }
+.products h3 {
+  color: #e6b17e;
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-family: 'Playfair Display', serif;
+}
 
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.4rem;
-      }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
 
-      .hero {
-        font-size: 1.4rem;
-        height: 200px;
-      }
+.product-card {
+  background: #3b2a1d;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-      .whatsapp-btn {
-        width: 100%;
-        justify-content: center;
-      }
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
 
-      .intro p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.product-card h4 {
+  margin: 20px;
+  font-size: 22px;
+  color: #e6b17e;
+}
+
+.product-card p {
+  margin: 0 20px 30px;
+  color: #d3c2b1;
+}
+
+/* Contact */
+.contact {
+  background: #1a120b;
+  text-align: center;
+}
+
+.contact h3 {
+  color: #e6b17e;
+  font-size: 36px;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+
+.contact p {
+  font-size: 18px;
+  color: #f1e3d3;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 30px;
+  border: none;
+  background: #e6b17e;
+  color: #1a120b;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #ffcb96;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #0f0805;
+  padding: 20px;
+  color: #bca58b;
+  font-size: 14px;
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Moses Wood Paarl</h1>
-    <a href="https://wa.me/27721234567" class="whatsapp-btn" target="_blank">
-      <i class="fab fa-whatsapp"></i> Order
-    </a>
-  </header>
 
-  <section class="hero">
-    Quality Wood. Fast Delivery. Great Prices.
-  </section>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h2>Where Wood Meets Art</h2>
+    <p>Handcrafted furniture, designed to last a lifetime.</p>
+  </div>
+</section>
 
-  <section class="intro">
-    <p>
-      At Moses Wood Paarl, we’re committed to providing top-quality wood at the <strong>best prices</strong>.
-      Whether you're a builder, craftsman, or DIY enthusiast, we offer reliable, <strong>fast delivery</strong> and a wide selection of <strong>premium wood products</strong> to meet your needs.
-    </p>
-    <a href="https://wa.me/27721234567" class="whatsapp-btn" target="_blank">
-      <i class="fab fa-whatsapp"></i> Chat & Order
-    </a>
-  </section>
+<section class="about" id="about">
+  <img src="c5.png" alt="Wood Crafting">
+  <div class="about-text">
+    <h3>Our Craft</h3>
+    <p>At OakCraft, we blend tradition and innovation to create wooden pieces that tell a story. Every table, chair, and cabinet is handcrafted using sustainable materials and the finest craftsmanship. We don’t just make furniture — we create heirlooms.</p>
+  </div>
+</section>
 
-  <section class="products">
-    <h2>Our Products</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="c8.jpg" alt="Bloekom Hout">
-        <div class="product-info">
-          <h3>Bloekom Hout 7kg</h3>
-          <p class="price">R19.99</p>
-          <p>Strong and long-burning hardwood, ideal for indoor and outdoor fires.</p>
-        </div>
-      </div>
-      <div class="product">
-        <img src="c9.avif" alt="Black-Wattle Hout">
-        <div class="product-info">
-          <h3>Black-Wattle Hout 7kg</h3>
-          <p class="price">R24.99</p>
-          <p>Fast-burning, dry wood perfect for quick heat and easy lighting.</p>
-        </div>
-      </div>
-      <div class="product">
-        <img src="c7.png" alt="Wingerd Stompe">
-        <div class="product-info">
-          <h3>Wingerd Stompe</h3>
-          <p class="price">R19.99</p>
-          <p>Vine stumps used for braais, fireplaces, or decorative rustic appeal.</p>
-        </div>
-      </div>
-      <div class="product">
-        <img src="c6.png" alt="Plum Hout">
-        <div class="product-info">
-          <h3>Plum Hout</h3>
-          <p class="price">R19.99</p>
-          <p>Beautiful hardwood with a smooth finish, great for furniture and crafts.</p>
-        </div>
-      </div>
-      <div class="product">
-        <img src="c4.png" alt="Olyf Hout">
-        <div class="product-info">
-          <h3>Olyf Hout</h3>
-          <p class="price">R39.99</p>
-          <p>Dense and aromatic wood, ideal for smoking meats or stylish firewood stacks.</p>
-        </div>
-      </div>
-      <div class="product">
-        <img src="c10.png" alt="Startes">
-        <div class="product-info">
-          <h3>Startes</h3>
-          <p class="price">R10-R20</p>
-          <p>Easy-to-light kindling to help start any fire quickly and effortlessly.</p>
-        </div>
-      </div>
+<section class="products" id="products">
+  <h3>Featured Creations</h3>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="c1.png" alt="Wooden Table">
+      <h4>Rustic Dining Table</h4>
+      <p>Solid oak with a natural matte finish — timeless elegance.</p>
     </div>
-  </section>
+    <div class="product-card">
+      <img src="c4.png" alt="Cabinet">
+      <h4>Classic Cabinet</h4>
+      <p>Handcrafted storage built for both beauty and durability.</p>
+    </div>
+    <div class="product-card">
+      <img src="c7.png" alt="Chair">
+      <h4>Modern Lounge Chair</h4>
+      <p>Elegant design meets exceptional comfort and quality.</p>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Moses Wood Paarl. All rights reserved.</p>
-  </footer>
+<section class="contact" id="contact">
+  <h3>Let’s Build Something Beautiful</h3>
+  <p>Contact us to bring your custom wood project to life.</p>
+  <button>Contact Us</button>
+</section>
 
+<footer>
+  <p>© 2025 OakCraft Woodworks | Designed with Passion</p>
+</footer>
 </body>
 </html>
